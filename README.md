@@ -1,6 +1,6 @@
 <img height=80 src="intro.gif">
 
-# Hello World! I'm Roy, a Web Developer from Taiwan 👋🏼:
+# I'm Roy, a Web Developer from Taiwan 👋
 
 🛜 just finished my own [webpage](https://g-portfolio.netlify.app/)<br>
 👨🏼‍🎓 studying Information Systems at New York University<br>
