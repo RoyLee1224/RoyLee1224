@@ -34,4 +34,3 @@
 </picture>
 
 [![OSSRank](https://ossrank.com/widget/1015250)](https://ossrank.com/c/1015250-li-jhe-chen)
-[![My OpenSauced Dev Card](./dev-card.png)](https://oss.fyi/RoyLee1224)
