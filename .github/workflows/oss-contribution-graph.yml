@@ -1,0 +1,51 @@
+name: Generate OSS Contribution Graph
+
+on:
+  schedule:
+    # 每天午夜執行一次
+    - cron: '0 0 * * *'
+  # 允許手動觸發
+  workflow_dispatch:
+
+jobs:
+  update-contribution-graph:
+    runs-on: ubuntu-latest
+    name: Update OSS Contribution Graph
+    # 需要權限來讀取 repo 內容並寫入/推送變更
+    permissions:
+      contents: write
+    steps:
+      # 第一步：Checkout 您的倉庫程式碼
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 新增步驟：確保輸出資料夾存在
+      - name: Create output directory
+        run: mkdir -p images
+
+      # 第二步：使用 peterxcli action 生成貢獻圖
+      # 我們使用 @v2.0 版本以確保穩定性
+      - name: Generate Contribution Graph
+        uses: peterxcli/gh-contribution-graph-action@v2.0
+        with:
+          # [重要] 設定目標：您的 GitHub 用戶名@倉庫擁有者/倉庫名稱
+          # 您可以像這樣加入多個目標，用空格分開：'RoyLee1224@apache/airflow RoyLee1224@apache/superset'
+          targets: 'RoyLee1224@apache/airflow'
+          
+          # GitHub Token，用於 API 認證
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
+          # 輸出資料夾，建議放在一個名為 images 的資料夾中
+          output_dir: 'images'
+
+      # 第三步：將新生成的圖片 commit 並 push 回您的倉庫
+      - name: Commit and push updated image
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          # 使用 git add . 來加入所有在 images/ 資料夾中的變更
+          git add images/*.svg
+          # 如果沒有變更，git commit 會失敗，所以我們加上 `|| echo "No changes to commit"` 來避免 workflow 報錯
+          git commit -m "Update OSS contribution graph" || echo "No changes to commit"
+          git push
+
