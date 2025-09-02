@@ -1,40 +1,68 @@
-name: Generate Contribution Graph
+name: Generate OSS Contribution Graph
 
 on:
   schedule:
+    # 每天午夜執行一次
     - cron: '0 0 * * *'
+  # 允許手動觸發
   workflow_dispatch:
 
 jobs:
-  build:
+  update-contribution-graph:
     runs-on: ubuntu-latest
-    name: Generate Contribution Graph
-    # Add permissions for the action to read repository contents and write files
+    name: Update OSS Contribution Graph
+    # 需要權限來讀取 repo 內容並寫入/推送變更
     permissions:
       contents: write
     steps:
-      # This step is no longer needed as the metrics action commits the file itself
-      # - name: Checkout Repository
-      #   uses: actions/checkout@v4
+      # 第一步：Checkout 您的倉庫程式碼
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
+      # 第二步：使用 peterxcli action 生成貢獻圖
+      # 我們使用 @v2.0 版本以確保穩定性
       - name: Generate Contribution Graph
-        # Use the more powerful and maintained 'lowlighter/metrics' action
-        uses: lowlighter/metrics@latest
+        uses: peterxcli/gh-contribution-graph-action@v2.0
         with:
-          # Your GitHub username
-          user: RoyLee1224
+          # [重要] 設定目標：您的 GitHub 用戶名@倉庫擁有者/倉庫名稱
+          # 您可以像這樣加入多個目標，用空格分開：'RoyLee1224@apache/airflow RoyLee1224@apache/superset'
+          targets: 'RoyLee1224@apache/airflow'
           
-          # Use a Personal Access Token (PAT) for better rate limits
-          # The GITHUB_TOKEN is a fallback
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # GitHub Token，用於 API 認證
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           
-          # We only want the contribution graph, so we specify 'base' and the 'isocalendar' plugin
-          base: "" # Hides the default header and stats
-          plugin_isocalendar_duration: full-year # Show the full year's graph
-          
-          # Specify the output file name
-          filename: contribution-graph.svg
-          
-          # Do not include the base stats, just the graph
-          config_display: ""
+          # 輸出資料夾，建議放在一個名為 images 的資料夾中
+          output_dir: 'images'
+
+      # 第三步：將新生成的圖片 commit 並 push 回您的倉庫
+      - name: Commit and push updated image
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          # 使用 git add . 來加入所有在 images/ 資料夾中的變更
+          git add images/*.svg
+          # 如果沒有變更，git commit 會失敗，所以我們加上 `|| echo "No changes to commit"` 來避免 workflow 報錯
+          git commit -m "Update OSS contribution graph" || echo "No changes to commit"
+          git push
+```
+
+### 變更說明
+
+1.  **切換回 `peterxcli` Action**：我們現在使用 `peterxcli/gh-contribution-graph-action@v2.0`，並遵循了其正確的用法。
+2.  **修正 `targets` 參數**：這是最關鍵的修改。我將 `targets` 設定為 `'RoyLee1224@apache/airflow'` 作為範例。您可以依照 `'您的用戶名@倉庫擁有者/倉庫名稱'` 的格式來修改或新增您想追蹤的其他倉庫。
+3.  **新增 `output_dir`**：我設定將圖片輸出到 `images` 資料夾，這有助於保持倉庫整潔。
+4.  **新增 Commit & Push 步驟**：這個 Action 只會產生圖片檔案，不會自動幫您上傳。因此，我新增了一個步驟，它會自動將新產生的圖片 `commit` 並 `push` 回您的倉庫，確保您的圖表每天都是最新的。
+
+### 如何在 README 中引用
+
+這個 Action 產生的檔名格式是 `{username}-{repo_owner}-{repo_name}-contribution-graph.svg`。
+
+根據上面的設定，產生的檔名將會是：`RoyLee1224-apache-airflow-contribution-graph.svg`，並且位於 `images` 資料夾下。
+
+請在您的 `README.md` 中使用以下程式碼來引用它：
+
+```markdown
+### 我在 Apache Airflow 上的貢獻圖
+
+![Apache Airflow Contributions](./images/RoyLee1224-apache-airflow-contribution-graph.svg)
 
