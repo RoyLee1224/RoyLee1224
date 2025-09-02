@@ -33,4 +33,4 @@
   <img alt="github-snake" src="https://raw.githubusercontent.com/RoyLee1224/RoyLee1224/output/github-snake.svg" />
 </picture>
 
-[![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=RoyLee1224&theme=dark&background=000000)](https://git.io/streak-stats)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=RoyLee1224&show_icons=true&theme=react&hide_border=true&bg_color=0D1117)
