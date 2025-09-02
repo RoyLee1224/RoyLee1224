@@ -37,7 +37,7 @@
 
 <a href="https://github.com/peterxcli/gh-contribution-graph-action/tree/main/">
   <img
-      src="./contribution-graph.svg"
+      src="./images/RoyLee1224-apache-airflow-contribution-graph.svg"
       alt="GitHub Contribution Graph"
   />
 </a>
