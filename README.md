@@ -35,4 +35,9 @@
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=RoyLee1224&show_icons=true&theme=react&hide_border=true&bg_color=0D1117)
 
-![My Contribution Graph](contribution-graph.svg)
+<a href="https://github.com/peterxcli/gh-contribution-graph-action/tree/main/">
+  <img
+      src=""
+      alt="GitHub Contribution Graph"
+  />
+</a>
