@@ -1,0 +1,26 @@
+name: Generate Contribution Graph
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Generate Contribution Graph
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Contribution Graph
+        uses: peterxcli/gh-contribution-graph-action@main
+        with:
+          USER_NAME: "RoyLee1224"
+
+          # ${{ secrets.GITHUB_TOKEN }} 是由 GitHub 自动提供的，通常无需修改
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          OUTPUT_PATH: "./contribution-graph.svg"
+
+          CUSTOM_TITLE: "Contribution Graph"
