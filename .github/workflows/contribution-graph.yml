@@ -9,13 +9,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Generate Contribution Graph
+    # Add permissions for the action to read repository contents and write files
+    permissions:
+      contents: write
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      # This step is no longer needed as the metrics action commits the file itself
+      # - name: Checkout Repository
+      #   uses: actions/checkout@v4
 
       - name: Generate Contribution Graph
-        uses: peterxcli/gh-contribution-graph-action@main
+        # Use the more powerful and maintained 'lowlighter/metrics' action
+        uses: lowlighter/metrics@latest
         with:
-          targets: "RoyLee1224"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          output_dir: "."
+          # Your GitHub username
+          user: RoyLee1224
+          
+          # Use a Personal Access Token (PAT) for better rate limits
+          # The GITHUB_TOKEN is a fallback
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+          # We only want the contribution graph, so we specify 'base' and the 'isocalendar' plugin
+          base: "" # Hides the default header and stats
+          plugin_isocalendar_duration: full-year # Show the full year's graph
+          
+          # Specify the output file name
+          filename: contribution-graph.svg
+          
+          # Do not include the base stats, just the graph
+          config_display: ""
+
