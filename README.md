@@ -36,7 +36,7 @@
 ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
 ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=RoyLee1224&show_icons=true&theme=react&hide_border=true&bg_color=0D1117)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=RoyLee1224&show_icons=true&hide_border=true)
 
 <a href="https://github.com/peterxcli/gh-contribution-graph-action/tree/main/">
   <img
