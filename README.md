@@ -7,7 +7,7 @@
 
 🚀 **Open Source Contributions**: [Apache Airflow](https://github.com/apache/airflow)
 
-## 🏆 Achievements & Highlights
+## 🏆 Highlights
 🏅 [Taipei City Dashboard Hackathon 2025](https://codefest.taipei/2025-spring/past) : Merit Award [(Taipei city dashboard)](https://citydashboard.taipei/dashboard?index=metro&city=taipei)
 
 🌟 **Airflow PR of the Month (x2)**: 
