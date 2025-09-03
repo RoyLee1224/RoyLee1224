@@ -1,11 +1,20 @@
 <img height=80 src="intro.gif">
 
 # I'm Roy, a Web Developer from Taiwan 👋
+🌐 **Portfolio**: [my webpage](https://g-portfolio.netlify.app/)<br>
 
-🛜 just finished my own [webpage](https://g-portfolio.netlify.app/)<br>
-👨🏼‍🎓 studying Information Systems at New York University<br>
-👨🏼‍💻 working as a web developer since 2022 <br>
-🚀 just started exploring open source and I'm ready to contribute!
+👨🏼‍🎓 **Studying**: M.S. in Information Systems @ New York University
+
+🚀 **Open Source Contributions**: [Apache Airflow](https://github.com/apache/airflow)
+
+## 🏆 Achievements & Highlights
+🏅 [Taipei City Dashboard Hackathon 2025](https://codefest.taipei/2025-spring/past) : Merit Award [(Taipei city dashboard)](https://citydashboard.taipei/dashboard?index=metro&city=taipei)
+
+🌟 **Airflow PR of the Month**: 
+- Feature/implement i18n for Dashboard and SideBar [#50626](https://github.com/apache/airflow/pull/50626)
+- Add Calendar view for Dag [#54252](https://github.com/apache/airflow/pull/54252)
+
+
 
 # 💻 Tech Stack:
 
@@ -26,12 +35,6 @@
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
 ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RoyLee1224/RoyLee1224/output/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/RoyLee1224/RoyLee1224/output/github-snake.svg" />
-  <img alt="github-snake" src="https://raw.githubusercontent.com/RoyLee1224/RoyLee1224/output/github-snake.svg" />
-</picture>
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=RoyLee1224&show_icons=true&theme=react&hide_border=true&bg_color=0D1117)
 
