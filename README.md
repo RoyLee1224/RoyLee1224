@@ -10,9 +10,9 @@
 ## 🏆 Achievements & Highlights
 🏅 [Taipei City Dashboard Hackathon 2025](https://codefest.taipei/2025-spring/past) : Merit Award [(Taipei city dashboard)](https://citydashboard.taipei/dashboard?index=metro&city=taipei)
 
-🌟 **Airflow PR of the Month**: 
-- Feature/implement i18n for Dashboard and SideBar [#50626](https://github.com/apache/airflow/pull/50626)
-- Add Calendar view for Dag [#54252](https://github.com/apache/airflow/pull/54252)
+🌟 **Airflow PR of the Month (x2)**: 
+  - Feature/implement i18n for Dashboard and SideBar [#50626](https://github.com/apache/airflow/pull/50626)
+  - Add Calendar view for Dag [#54252](https://github.com/apache/airflow/pull/54252)
 
 
 
