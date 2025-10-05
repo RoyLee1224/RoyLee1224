@@ -1,7 +1,7 @@
 <img height=80 src="intro.gif">
 
 # I'm Roy, a Web Developer from Taiwan 👋
-🌐 **Portfolio**: [my webpage](https://g-portfolio.netlify.app/)<br>
+👨🏼‍💻  **Portfolio**: [my webpage](https://g-portfolio.netlify.app/)<br>
 
 👨🏼‍🎓 **Studying**: M.S. in Information Systems @ New York University
 
